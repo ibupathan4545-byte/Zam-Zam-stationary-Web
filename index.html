@@ -3,286 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZamZam Stationery | The Ultimate Writing & Office Hub</title>
-    <!-- Tailwind CSS for a modern, wide, and responsive layout -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+    <title>Zam Zam Stationery | Premium Office & School Supplies</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f172a; /* Deep Professional Blue */
+            --accent: #3b82f6; /* Modern Blue */
+            --gold: #fbbf24;
+            --glass: rgba(255, 255, 255, 0.8);
+        }
 
-    <!-- TOP ANNOUNCEMENT BAR -->
-    <div class="bg-indigo-950 text-white text-center py-2 text-sm font-medium tracking-wide">
-        ✨ Grand Opening Celebration! Use Code <span class="text-yellow-400 font-bold">ZAMZAM10</span> for 10% off worldwide shipping! ✨
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            background: radial-gradient(circle at top right, #e2e8f0, #ffffff);
+            color: #1e293b;
+            min-height: 100vh;
+        }
+
+        /* --- STYLISH LOADER --- */
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--accent);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* --- PROFESSIONAL NAVIGATION --- */
+        nav {
+            backdrop-filter: blur(10px);
+            background: var(--glass);
+            padding: 1rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0; z-index: 1000;
+        }
+
+        .logo { font-weight: 800; font-size: 1.4rem; color: var(--primary); }
+        .logo span { color: var(--accent); }
+
+        .nav-links { display: flex; gap: 25px; }
+        .nav-links a { 
+            text-decoration: none; color: #64748b; 
+            font-weight: 600; font-size: 0.85rem;
+            transition: 0.3s;
+        }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* --- PAGE STRUCTURE --- */
+        .page {
+            display: none;
+            padding: 40px 8%;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        @keyframes slideUp { 
+            from { opacity: 0; transform: translateY(20px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+
+        .active-page { display: block; }
+
+        /* --- HERO SECTION --- */
+        .hero-box {
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.8)), 
+                        url('https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?w=1200');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 40px;
+            border-radius: 24px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero-box h1 { font-size: 2.5rem; margin-bottom: 10px; }
+
+        /* --- PROFESSIONAL GRID --- */
+        .tree-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .item-card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .item-card:hover { 
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.1);
+        }
+
+        .badge {
+            background: #dbeafe;
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        footer { text-align: center; padding: 40px; color: #94a3b8; font-size: 0.8rem; }
+
+    </style>
+</head>
+<body>
+
+    <div id="loader">
+        <div class="spinner"></div>
+        <p style="margin-top: 10px; font-weight: 600;">Preparing Workspace...</p>
     </div>
 
-    <!-- HEADER & NAVIGATION (Full Width) -->
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
-        <div class="max-w-[1800px] mx-auto px-6 h-20 flex items-center justify-between">
-            <!-- Brand Logo -->
-            <a href="#" class="text-3xl font-black tracking-tight text-indigo-950 flex items-center gap-2">
-                <i class="fa-solid fa-pen-nib text-indigo-600"></i>
-                ZAMZAM<span class="text-indigo-600">.</span>
-            </a>
-
-            <!-- Mega Menu Navigation -->
-            <nav class="hidden xl:flex items-center gap-8 font-semibold text-gray-600">
-                <a href="#" class="text-indigo-600 hover:text-indigo-800 transition">Home</a>
-                <a href="#" class="hover:text-indigo-600 transition">Notebooks & Journals</a>
-                <a href="#" class="hover:text-indigo-600 transition">Fine Writing</a>
-                <a href="#" class="hover:text-indigo-600 transition">Art Supplies</a>
-                <a href="#" class="hover:text-indigo-600 transition">Office Essentials</a>
-                <a href="#" class="hover:text-indigo-600 transition">New Arrivals</a>
-            </nav>
-
-            <!-- Search and Cart Actions -->
-            <div class="flex items-center gap-6">
-                <div class="relative hidden md:block w-72">
-                    <input type="text" placeholder="Search 10,000+ premium products..." class="w-full bg-gray-100 pl-10 pr-4 py-2 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-gray-400 text-xs"></i>
-                </div>
-                <button class="relative p-2 text-gray-700 hover:text-indigo-600 transition">
-                    <i class="fa-solid fa-heart text-xl"></i>
-                </button>
-                <button class="relative p-2 text-gray-700 hover:text-indigo-600 transition">
-                    <i class="fa-solid fa-bag-shopping text-xl"></i>
-                    <span class="absolute -top-1 -right-1 bg-indigo-600 text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold">3</span>
-                </button>
-            </div>
+    <nav>
+        <div class="logo">ZAM<span>ZAM</span></div>
+        <div class="nav-links">
+            <a href="#" onclick="switchPage('home')">Dashboard</a>
+            <a href="#" onclick="switchPage('catalogue')">Catalogue</a>
+            <a href="#" onclick="switchPage('corporate')">Corporate</a>
+            <a href="#" onclick="switchPage('contact')">Support</a>
         </div>
-    </header>
+    </nav>
 
-    <!-- HERO SECTION (Ultra-Wide Cinematic Banner) -->
-    <section class="relative bg-zinc-900 h-[750px] flex items-center overflow-hidden">
-        <div class="absolute inset-0 opacity-40 mix-blend-overlay">
-            <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=1920&q=80" alt="Stationery Background" class="w-full h-full object-cover">
-        </div>
-        <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
-        
-        <div class="relative max-w-[1800px] mx-auto px-6 w-full text-white z-10">
-            <span class="text-indigo-400 uppercase tracking-widest font-bold text-sm bg-indigo-500/10 px-4 py-2 rounded-full border border-indigo-500/30">The Artisan Collection 2026</span>
-            <h1 class="text-6xl md:text-8xl font-black tracking-tight mt-6 max-w-4xl leading-none">
-                Where Thoughts <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">Meet Paper.</span>
-            </h1>
-            <p class="text-xl text-gray-300 mt-6 max-w-2xl font-light leading-relaxed">
-                Welcome to ZamZam Stationery—the world's largest curation of premium journals, luxury fountain pens, aesthetic desk organizers, and professional art tools.
-            </p>
-            <div class="mt-10 flex flex-wrap gap-4">
-                <a href="#" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-indigo-600/30 transition transform hover:-translate-y-0.5">Explore Entire Shop</a>
-                <a href="#" class="bg-white/10 hover:bg-white/20 text-white font-bold px-8 py-4 rounded-xl backdrop-blur-md border border-white/20 transition">View Best Sellers</a>
+    <main>
+        <section id="home" class="page active-page">
+            <div class="hero-box">
+                <h1>Zam Zam Stationery</h1>
+                <p>Premium Supplies for Schools & Offices since 1995</p>
             </div>
-        </div>
-    </section>
+            <div class="tree-grid">
+                <div class="item-card">
+                    <span class="badge">New Arrival</span>
+                    <h3>Luxury Fountain Pens</h3>
+                    <p>Experience the art of writing with our German nib collection.</p>
+                </div>
+                <div class="item-card">
+                    <span class="badge">Bulk Deal</span>
+                    <h3>Corporate Paper Packs</h3>
+                    <p>Heavy-duty A4 rims for high-volume printing needs.</p>
+                </div>
+            </div>
+        </section>
 
-    <!-- TRUST BADGES (Wide Layout) -->
-    <section class="bg-white border-b border-gray-200">
-        <div class="max-w-[1800px] mx-auto px-6 py-8 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center lg:text-left">
-            <div class="flex flex-col lg:flex-row items-center gap-4 p-4">
-                <i class="fa-solid fa-truck-fast text-3xl text-indigo-600"></i>
-                <div>
-                    <h4 class="font-bold text-indigo-950">Worldwide Free Shipping</h4>
-                    <p class="text-sm text-gray-500">On all orders over $50</p>
-                </div>
+        <section id="catalogue" class="page">
+            <h2>Product Catalogue</h2>
+            <div class="tree-grid">
+                <div class="item-card"><h3>Mathematical Tools</h3><p>Geometry sets and Calculators.</p></div>
+                <div class="item-card"><h3>Art Supplies</h3><p>Canvas, Acrylics, and Brushes.</p></div>
+                <div class="item-card"><h3>Archiving</h3><p>Lever arch files and box files.</p></div>
             </div>
-            <div class="flex flex-col lg:flex-row items-center gap-4 p-4">
-                <i class="fa-solid fa-gem text-3xl text-indigo-600"></i>
-                <div>
-                    <h4 class="font-bold text-indigo-950">100% Premium Quality</h4>
-                    <p class="text-sm text-gray-500">Curated from top global brands</p>
-                </div>
-            </div>
-            <div class="flex flex-col lg:flex-row items-center gap-4 p-4">
-                <i class="fa-solid fa-arrow-rotate-left text-3xl text-indigo-600"></i>
-                <div>
-                    <h4 class="font-bold text-indigo-950">Easy 30-Day Returns</h4>
-                    <p class="text-sm text-gray-500">No questions asked guarantee</p>
-                </div>
-            </div>
-            <div class="flex flex-col lg:flex-row items-center gap-4 p-4">
-                <i class="fa-solid fa-headset text-3xl text-indigo-600"></i>
-                <div>
-                    <h4 class="font-bold text-indigo-950">24/7 Expert Support</h4>
-                    <p class="text-sm text-gray-500">Ready to assist your creative needs</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CATEGORIES GRID (Highly Attractive Visuals) -->
-    <section class="max-w-[1800px] mx-auto px-6 py-20">
-        <div class="flex justify-between items-end mb-12">
-            <div>
-                <h2 class="text-4xl font-black text-indigo-950 tracking-tight">Shop by Creative Domain</h2>
-                <p class="text-gray-500 mt-2">Everything you need to create, organize, and inspire.</p>
+        <section id="corporate" class="page">
+            <h2>Corporate Services</h2>
+            <div class="item-card">
+                <h3>Custom Branding</h3>
+                <p>Get your company logo printed on diaries and pens.</p>
             </div>
-            <a href="#" class="text-indigo-600 font-bold hover:underline flex items-center gap-2">View All Categories <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
+        </section>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Cat 1 -->
-            <div class="group relative h-96 rounded-2xl overflow-hidden shadow-md cursor-pointer">
-                <img src="https://images.unsplash.com/photo-1531346878377-a5be20888e57?auto=format&fit=crop&w=600&q=80" alt="Notebooks" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
-                    <h3 class="text-2xl font-bold text-white">Notebooks & Planners</h3>
-                    <p class="text-gray-300 text-sm mt-1">Leather journals, bullet grids, & diaries</p>
-                </div>
-            </div>
-            <!-- Cat 2 -->
-            <div class="group relative h-96 rounded-2xl overflow-hidden shadow-md cursor-pointer">
-                <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=600&q=80" alt="Writing" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
-                    <h3 class="text-2xl font-bold text-white">Fine Writing</h3>
-                    <p class="text-gray-300 text-sm mt-1">Fountain pens, luxury inks, & calligraphy</p>
-                </div>
-            </div>
-            <!-- Cat 3 -->
-            <div class="group relative h-96 rounded-2xl overflow-hidden shadow-md cursor-pointer">
-                <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80" alt="Art Supplies" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
-                    <h3 class="text-2xl font-bold text-white">Art Supplies</h3>
-                    <p class="text-gray-300 text-sm mt-1">Watercolors, premium acrylics, & sketchpads</p>
-                </div>
-            </div>
-            <!-- Cat 4 -->
-            <div class="group relative h-96 rounded-2xl overflow-hidden shadow-md cursor-pointer">
-                <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80" alt="Desk Organization" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
-                    <h3 class="text-2xl font-bold text-white">Desk Accessories</h3>
-                    <p class="text-gray-300 text-sm mt-1">Organizers, aesthetic clips, & tapes</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        <section id="contact" class="page">
+            <h2>Contact Professional Support</h2>
+            <p>Direct Helpline: +91 98XXX XXXXX</p>
+            <p>Branch: Main Market, Stationery Row.</p>
+        </section>
+    </main>
 
-    <!-- FEATURED PRODUCTS (Largest Widest Showcase) -->
-    <section class="bg-gray-100 py-20">
-        <div class="max-w-[1800px] mx-auto px-6">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-4xl font-black text-indigo-950 tracking-tight">Trending Essentials</h2>
-                <p class="text-gray-600 mt-2">The absolute favorites, handpicked by the ZamZam team this week.</p>
-            </div>
+    <footer>
+        &copy; 2026 Zam Zam General Store. All Rights Reserved.
+    </footer>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Product 1 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-sm group hover:shadow-xl transition duration-300">
-                    <div class="relative overflow-hidden bg-gray-50 h-72">
-                        <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=500&q=80" alt="Product" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                        <span class="absolute top-4 left-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">Sale</span>
-                    </div>
-                    <div class="p-6">
-                        <span class="text-xs text-indigo-600 font-bold uppercase tracking-wider">Notebooks</span>
-                        <h3 class="font-bold text-lg text-indigo-950 mt-1 hover:text-indigo-600 cursor-pointer transition">Minimalist Hardcover Dotted Journal</h3>
-                        <div class="flex items-center gap-2 mt-3">
-                            <span class="text-xl font-black text-indigo-950">$18.00</span>
-                            <span class="text-sm text-gray-400 line-through">$24.00</span>
-                        </div>
-                        <button class="w-full mt-6 bg-indigo-950 hover:bg-indigo-600 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
-                        </button>
-                    </div>
-                </div>
+    <script>
+        // SMART ROUTING: Har click par loading bar aayega
+        function switchPage(id) {
+            const loader = document.getElementById('loader');
+            
+            // 1. Show loader immediately
+            loader.style.display = 'flex';
+            loader.style.opacity = '1';
 
-                <!-- Product 2 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-sm group hover:shadow-xl transition duration-300">
-                    <div class="relative overflow-hidden bg-gray-50 h-72">
-                        <img src="https://images.unsplash.com/photo-1569003339405-ea396a5a8a90?auto=format&fit=crop&w=500&q=80" alt="Product" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                    </div>
-                    <div class="p-6">
-                        <span class="text-xs text-indigo-600 font-bold uppercase tracking-wider">Pens</span>
-                        <h3 class="font-bold text-lg text-indigo-950 mt-1 hover:text-indigo-600 cursor-pointer transition">Classic Golden Nib Fountain Pen</h3>
-                        <div class="flex items-center gap-2 mt-3">
-                            <span class="text-xl font-black text-indigo-950">$45.00</span>
-                        </div>
-                        <button class="w-full mt-6 bg-indigo-950 hover:bg-indigo-600 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
-                        </button>
-                    </div>
-                </div>
+            // 2. Switch content after 700ms (Fast feeling)
+            setTimeout(() => {
+                document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
+                document.getElementById(id).classList.add('active-page');
+                
+                // Hide loader
+                loader.style.opacity = '0';
+                setTimeout(() => loader.style.display = 'none', 300);
+            }, 700);
+        }
 
-                <!-- Product 3 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-sm group hover:shadow-xl transition duration-300">
-                    <div class="relative overflow-hidden bg-gray-50 h-72">
-                        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=500&q=80" alt="Product" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                        <span class="absolute top-4 left-4 bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full">New</span>
-                    </div>
-                    <div class="p-6">
-                        <span class="text-xs text-indigo-600 font-bold uppercase tracking-wider">Art</span>
-                        <h3 class="font-bold text-lg text-indigo-950 mt-1 hover:text-indigo-600 cursor-pointer transition">Artisan Watercolor Palette Set (24 Colors)</h3>
-                        <div class="flex items-center gap-2 mt-3">
-                            <span class="text-xl font-black text-indigo-950">$32.00</span>
-                        </div>
-                        <button class="w-full mt-6 bg-indigo-950 hover:bg-indigo-600 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Product 4 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-sm group hover:shadow-xl transition duration-300">
-                    <div class="relative overflow-hidden bg-gray-50 h-72">
-                        <img src="https://images.unsplash.com/photo-1622434641406-a158123450f9?auto=format&fit=crop&w=500&q=80" alt="Product" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                    </div>
-                    <div class="p-6">
-                        <span class="text-xs text-indigo-600 font-bold uppercase tracking-wider">Desk Accessories</span>
-                        <h3 class="font-bold text-lg text-indigo-950 mt-1 hover:text-indigo-600 cursor-pointer transition">Retro Mechanical Desk Clock</h3>
-                        <div class="flex items-center gap-2 mt-3">
-                            <span class="text-xl font-black text-indigo-950">$29.00</span>
-                        </div>
-                        <button class="w-full mt-6 bg-indigo-950 hover:bg-indigo-600 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- HUGE INTERACTIVE BANNER -->
-    <section class="max-w-[1800px] mx-auto px-6 py-20">
-        <div class="bg-indigo-950 text-white rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-2 items-center">
-            <div class="p-12 md:p-20">
-                <span class="text-yellow-400 font-bold uppercase tracking-widest text-sm">Corporate & Bulk Orders</span>
-                <h2 class="text-4xl md:text-5xl font-black tracking-tight mt-4 mb-6 leading-tight">
-                    Equip Your Office or Classroom with Premium ZamZam Supplies
-                </h2>
-                <p class="text-gray-300 text-lg mb-8 leading-relaxed">
-                    Get wholesale pricing, custom branding on notebooks, and premium bulk setups for your business or institution. Free designated support manager included.
-                </p>
-                <button class="bg-white text-indigo-950 font-bold px-8 py-4 rounded-xl hover:bg-gray-100 transition">
-                    Contact Bulk Sales Division
-                </button>
-            </div>
-            <div class="h-full min-h-[400px]">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80" alt="Office Setup" class="w-full h-full object-cover">
-            </div>
-        </div>
-    </section>
-
-    <!-- NEWSLETTER & FOOTER (Widest Layout) -->
-    <footer class="bg-zinc-900 text-gray-400 pt-20 pb-10">
-        <div class="max-w-[1800px] mx-auto px-6">
-            <!-- Newsletter Sub-section -->
-            <div class="pb-16 border-b border-zinc-800 flex flex-col lg:flex-row justify-between items-center gap-8">
-                <div>
-                    <h3 class="text-2xl font-bold text-white">Join the ZamZam Stationery Club</h3>
-                    <p class="text-sm text-gray-400 mt-1">Receive early access notifications, artistic inspiration, and unique discount vouchers.</p>
-                </div>
-                <div class="flex w-full lg:w-auto max-w-md gap-2">
-                    <input type="email" placeholder="Enter your email address" class="bg-zinc-800 text-white px-5 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full lg:w-80">
-                    <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-6 py-3 rounded-xl transition whitespace-nowrap">Subscribe</button>
-                </div>
-            </div>
-
-            <!-- Main Footer Links -->
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-12 py-16">
-                <div class="col-span-2">
-                    <a href="#" class="text-3xl font-black tracking-tight text-white flex items-center gap-2 mb-6">
-                        <i class="fa-solid fa-pen-nib text-indigo-500"></i> ZAMZAM.
-                    </a>
-                    <p class="text-sm text-gray-400 max-w-sm leading-relaxed mb-6">
-                        Providing creators, dreamers, professionals, and students with high-tier aesthetic tools. Making paper and ink look premium since day one.
-                    </p>
-                    <div class="flex gap-4 text-xl">
-                        <a href="#" class="hover:text-white transition"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="#" class="hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" class="hover:text-white transition"><i class="fa-brands fa-pinterest"></i></a>
-                        <a href="#" c
+        // FORCE HIDE LOADER on Initial Load
+        // Agar image load nahi bhi hui, toh 1.5 sec baad loader hat jayega
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const loader = document.getElementById('loader');
+                loader.style.opacity = '0';
+                setTimeout(() => loader.style.display = 'none', 300);
+            }, 1500); 
+        });
+    </script>
+</body>
+</html>
